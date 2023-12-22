@@ -12,8 +12,20 @@ public class SGRandomWalk {
         //box.translate(20, 30);
         //egg.grow(5,5);
         Ellipse circle = new Ellipse(150, 150, 10, 10);
+        Ellipse border = new Ellipse(50, 50, 200, 200);
+        Rectangle backGround = new Rectangle(0,0,300,300);
+        backGround.setColor(Color.BLUE);
+        backGround.fill();
+        border.draw();
         circle.setColor(Color.RED);
         circle.fill();
-        circle.draw();
+        System.out.println(border.getX());
+        System.out.println(border.getWidth());
+        while((circle.getX() < border.getHeight() && circle.getY() < border.getWidth()) && (circle.getX() > border.getX() && circle.getY() > border.getY())){
+            circle.moveOnce(circle);
+            try {Thread.sleep(100);}
+            catch(Exception ex) {};
+        }
+        circle.getMoves();
     }
 }

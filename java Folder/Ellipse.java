@@ -10,6 +10,7 @@ public class Ellipse implements Shape
     private double y;
     private double width;
     private double height;
+    private int count = 0;
     
     /**
      * Constructs an ellipse.
@@ -135,5 +136,14 @@ public class Ellipse implements Shape
         {
             g2.draw(ellipse);
         }
+    }
+    public void moveOnce(Ellipse x){
+        int movementx = (int)(Math.random() * 20) - 10;
+        int movementy = (int)(Math.random() * 20) - 10;
+        x.translate(movementx, movementy);
+        count++;
+    }
+    public void getMoves(){
+        System.out.print("Escaped in " + count + " steps.");
     }
 }
